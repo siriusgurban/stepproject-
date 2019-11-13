@@ -2,9 +2,10 @@ package step.io;
 
 public enum Command {
   TIMETABLE_SHOW,
-  BOOKING_SHOW,
-  BOOKING_ADD,
+  TIMETABLE_LINE_SHOW,
+  FLIGHT_SEARCH,
   BOOKING_REMOVE,
-  HELP,
-  EXIT
+  MY_BOOKINGS_SHOW,
+  EXIT,
+  WRONG
 }

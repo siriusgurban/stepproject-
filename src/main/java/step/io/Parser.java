@@ -2,10 +2,21 @@ package step.io;
 
 public class Parser {
   public Command parse(String origin) {
-    if ("1".equals(origin)) return Command.TIMETABLE_SHOW;
-    else if ("2".equals(origin)) return Command.BOOKING_ADD;
-    //...
-    else if ("EXIT".equalsIgnoreCase(origin)) return Command.EXIT;
-    else return Command.HELP;
+    switch (origin.toLowerCase()){
+      case "1":
+        return Command.TIMETABLE_SHOW;
+      case "2":
+        return Command.TIMETABLE_LINE_SHOW;
+      case "3":
+        return Command.FLIGHT_SEARCH;
+      case "4":
+        return Command.BOOKING_REMOVE;
+      case "5":
+        return Command.MY_BOOKINGS_SHOW;
+      case "6":
+        return Command.EXIT;
+      default:
+        return Command.WRONG;
+    }
   }
 }

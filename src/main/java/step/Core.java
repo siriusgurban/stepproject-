@@ -1,16 +1,18 @@
 package step;
 
+import step.Console;
 import step.controller.BookingController;
 import step.controller.MainController;
 import step.controller.TimetableController;
 import step.io.Command;
 import step.io.Parser;
 
-public class Core {
+import java.io.IOException;
 
+public class Core {
   private final Console console;
-  private final Menu menu;
   private final Database database;
+  private final Menu menu;
   private final Parser parser;
   private final BookingController bookingController;
   private final TimetableController timetableController;
@@ -21,42 +23,47 @@ public class Core {
     this.database = database;
     this.menu = new Menu();
     this.parser = new Parser();
-    this.timetableController = new TimetableController();
     this.bookingController = new BookingController();
-    this.mainController = new MainController();
+    this.timetableController = new TimetableController();
+    this.mainController= new MainController();
   }
 
-  public void run() {
+  public void run() throws IOException {
+    bookingController.load();
+    timetableController.load();
     if (!database.isExisted()) {
       database.createInitialData();
     }
     boolean cont = true;
     console.printLn(menu.show());
     while (cont) {
-
       String line = console.readLn();
       Command user_input = parser.parse(line);
       switch (user_input) {
         case TIMETABLE_SHOW:
           timetableController.show();
           break;
-        case BOOKING_ADD:
-          bookingController.add();
+        case TIMETABLE_LINE_SHOW:
+          timetableController.showLine();
+          break;
+        case FLIGHT_SEARCH:
+          timetableController.search();
           break;
         case BOOKING_REMOVE:
           bookingController.remove();
           break;
-        case BOOKING_SHOW:
+        case MY_BOOKINGS_SHOW:
           bookingController.show();
           break;
         case EXIT:
-          cont = false;
+          cont=false;
           break;
-        case HELP:
         default:
-          console.printLn(mainController.help());
+          console.printLn("Wrong item");
           break;
       }
     }
   }
+
 }
+
