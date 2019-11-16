@@ -13,7 +13,7 @@ public class TimetableController {
   private final SystemConsole systemConsole;
   private final BookingController bookingController;
 
-  public TimetableController() {
+  public TimetableController(){
     this.timetableService = new TimetableService();
     this.systemConsole = new SystemConsole();
     this.bookingController = new BookingController();
@@ -26,21 +26,21 @@ public class TimetableController {
     String toCityName = systemConsole.readLn();
     String date = systemConsole.readLn();
     String nTickets = systemConsole.readLn();
-    HashMap<Integer,Flight> chosen= timetableService.search(fromCityName, toCityName, date, nTickets);
+    HashMap<Integer,Flight> chosen = timetableService.search(fromCityName, toCityName, date, nTickets);
     bookingController.add(chosen);
   }
 
-  public void show() {
+  public void show(){
     LocalDateTime fromDateTime = LocalDateTime.now();
     LocalDateTime toDateTime = LocalDateTime.now().plusHours(24);
     timetableService.show(fromDateTime, toDateTime);
   }
 
-  public void showLine() {
+  public void showLine(){
     systemConsole.printLn("Please enter flight id");
     String line;
     int id = -1;
-    while (true) {
+    while (true){
       try {
         line = systemConsole.readLn();
         id = Integer.parseInt(line);

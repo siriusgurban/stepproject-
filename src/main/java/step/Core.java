@@ -18,14 +18,14 @@ public class Core {
   private final TimetableController timetableController;
   private final MainController mainController;
 
-  public Core(Console console, Database database) {
+  public Core(Console console, Database database){
     this.console = console;
     this.database = database;
     this.menu = new Menu();
     this.parser = new Parser();
     this.bookingController = new BookingController();
     this.timetableController = new TimetableController();
-    this.mainController= new MainController();
+    this.mainController = new MainController();
   }
 
   public void run() throws IOException {
@@ -64,6 +64,5 @@ public class Core {
       }
     }
   }
-
 }
 
