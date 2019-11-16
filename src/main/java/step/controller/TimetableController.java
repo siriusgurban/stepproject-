@@ -20,8 +20,8 @@ public class TimetableController {
   }
 
   public void search() {
-    systemConsole.printLn("Please enter source city name,  destination city name, date and number of tickets to buy (with enters)");
-    systemConsole.printLn("Example Oslo Bern 2019.11.13 2");
+    systemConsole.printLn("Please enter your city, destination city, date and number of tickets to buy");
+    systemConsole.printLn("Example: Baku Roma 2020.02.27 24");
     String fromCityName = systemConsole.readLn();
     String toCityName = systemConsole.readLn();
     String date = systemConsole.readLn();
