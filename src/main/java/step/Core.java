@@ -59,7 +59,7 @@ public class Core {
           cont=false;
           break;
         default:
-          console.printLn("Wrong item");
+          console.printLn("Wrong");
           break;
       }
     }

@@ -32,7 +32,7 @@ public class BookingService {
             flight=entry.getValue();
         }
         for (int i = 0;i<numOfTickets;i++){
-            systemConsole.printLn("Enter passengers name and surname with enter.");
+            systemConsole.printLn("Enter name and surname.");
             systemConsole.printLn("Start writing your name and surname ");
             String name = systemConsole.readLn();
             String surname = systemConsole.readLn();
@@ -53,7 +53,7 @@ public class BookingService {
                 if (name.equalsIgnoreCase(passenger.getName()) && surname.equalsIgnoreCase(passenger.getSurname())){
                     systemConsole.printLn(booking.toString());
                 }else{
-                    systemConsole.printLn("There is no booking at your name");
+                    systemConsole.printLn("There is no booking");
                 }
             }
         }

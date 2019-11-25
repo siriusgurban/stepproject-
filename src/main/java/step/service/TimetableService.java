@@ -28,7 +28,7 @@ public class TimetableService {
             }).collect(Collectors.toList());
             printFlights(all);
         } catch (Exception e) {
-            System.out.println("Input is not correct");
+            System.out.println("It is not correct");
         }
     }
 
@@ -39,7 +39,7 @@ public class TimetableService {
             all.add(flight);
             printFlights(all);
         } catch (Exception e) {
-            System.out.println("Input is not correct");
+            System.out.println("It is not correct");
         }
     }
 
@@ -75,7 +75,7 @@ public class TimetableService {
                 }
             }
         } catch (Exception e) {
-            systemConsole.printLn("No flight available");
+            systemConsole.printLn("No flights");
         }
         return book;
     }
@@ -89,7 +89,7 @@ public class TimetableService {
                     + ", date:" + flight.getDate());
         }
 
-        if (all.size() == 0) System.out.println("No Flights Found");
+        if (all.size() == 0) System.out.println("No Flights");
     }
 
     public int checkInputIsInteger(String input) {
